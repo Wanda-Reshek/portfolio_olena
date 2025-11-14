@@ -25,17 +25,40 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #F8CAFF;
-  background-image: url('/bg.svg');
-  background-size: 150% auto;
-  background-position: center 10%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  overflow: visible;
+}
+
+/* SVG container that allows overflow */
+.bg-svg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* SVG element with blur and positioning */
+.bg-svg {
+  position: absolute;
+  width: 150%;
+  height: auto;
+  left: 50%;
+  top: -25%;
+  transform: translateX(-50%);
+  filter: blur(5.52vw);
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* App container */
 .app {
   padding: 2rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .app h1 {
