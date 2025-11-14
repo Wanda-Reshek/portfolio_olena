@@ -24,6 +24,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #F8CAFF;
+  background-image: url('/bg.svg');
+  background-size: 150% auto;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* App container */
