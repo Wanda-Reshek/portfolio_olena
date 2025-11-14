@@ -48,7 +48,7 @@ body {
   left: 50%;
   top: -25%;
   transform: translateX(-50%);
-  filter: blur(5.52vw);
+  filter: blur(5.52vw) url(#noiseFilter);
   z-index: 0;
   pointer-events: none;
 }
