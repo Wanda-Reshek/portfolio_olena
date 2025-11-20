@@ -59,7 +59,9 @@ body {
   left: 50%;
   top: -25%;
   transform: translateX(-50%);
-  filter: blur(clamp(20px, 5.52vw, 80px)) url(#noiseFilter);
+  /* Proportional blur: at 1440px = ~79px, at 2400px = ~133px */
+  /* 5.55vw means blur scales perfectly with viewport - no maximum limit */
+  filter: blur(clamp(30px, 5.55vw, 100vw)) url(#noiseFilter);
   z-index: 0;
   pointer-events: none;
 }

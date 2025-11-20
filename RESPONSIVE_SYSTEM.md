@@ -176,7 +176,10 @@ When adding new components:
 
 ## Notes
 
-- The blur filter in `index.css` uses `clamp(20px, 5.52vw, 80px)` because filter values need explicit units
+- The blur filter in `index.css` uses `clamp(30px, 5.55vw, 100vw)` for proportional scaling
+  - At 1440px viewport: ~80px blur (1440 × 5.55% = 79.92px)
+  - At 2400px viewport: ~133px blur (2400 × 5.55% = 133.2px)
+  - Scales proportionally with viewport width for consistent visual effect
 - Transition values like `0.2s` don't need conversion (they're time-based)
 - Border-radius can stay in `px` if needed, but `rem` is preferred for consistency
 - SVG sizing may still use percentage-based approaches
