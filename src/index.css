@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Grenze:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -5,9 +8,17 @@
   box-sizing: border-box;
 }
 
+/* Responsive base font-size - everything scales from this */
+html {
+  /* Perfect proportional scaling: 1.11vw means at 1440px = 16px base */
+  /* No maximum limit - scales infinitely for true proportional design */
+  /* At 320px = ~3.5px (but clamp protects), at 1440px = 16px, at 2400px = 26.6px */
+  font-size: clamp(10px, 1.11vw, 100vw);
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1;
   font-weight: 400;
   
   color-scheme: light dark;
@@ -22,7 +33,7 @@
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 20rem; /* 320px minimum */
   min-height: 100vh;
   background-color: #F8CAFF;
   overflow: visible;
@@ -48,17 +59,17 @@ body {
   left: 50%;
   top: -25%;
   transform: translateX(-50%);
-  filter: blur(5.52vw) url(#noiseFilter);
+  filter: blur(clamp(20px, 5.52vw, 80px)) url(#noiseFilter);
   z-index: 0;
   pointer-events: none;
 }
 
 /* App container */
 .app {
-  padding: 2rem;
-  text-align: center;
   position: relative;
   z-index: 1;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .app h1 {
@@ -71,7 +82,7 @@ body {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 0.25rem auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {

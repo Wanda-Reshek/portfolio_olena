@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Loading Test</title>
+    <style>
+        .test1 {
+            width: 300px;
+            height: 200px;
+            background-image: url('/bg.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: 2px solid blue;
+            margin: 20px;
+        }
+        .test2 {
+            width: 300px;
+            height: 200px;
+            background-image: url('./bg.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border: 2px solid green;
+            margin: 20px;
+        }
+        .test3 {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SVG Loading Test</h1>
+    <p>Test 1: url('/bg.svg')</p>
+    <div class="test1"></div>
+    
+    <p>Test 2: url('./bg.svg')</p>
+    <div class="test2"></div>
+    
+    <p>Test 3: Red background (control)</p>
+    <div class="test3"></div>
+    
+    <p>Direct SVG embed:</p>
+    <img src="/bg.svg" width="300" style="border: 2px solid orange;" alt="Direct SVG">
+</body>
+</html>

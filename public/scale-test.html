@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Scale Test</title>
+  <style>
+    /* Import the same font-size system */
+    html {
+      font-size: clamp(10px, 1.11vw, 100vw);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+    }
+
+    .container {
+      max-width: min(75rem, 95%);
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+    }
+
+    .info {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .scale-demo {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .scale-item {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .scale-label {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .text-6xl { font-size: 6rem; line-height: 1; }
+    .text-5xl { font-size: 4rem; line-height: 1; }
+    .text-4xl { font-size: 3rem; line-height: 1.1; }
+    .text-3xl { font-size: 2.5rem; line-height: 1.1; }
+    .text-2xl { font-size: 2rem; line-height: 1.2; }
+    .text-xl { font-size: 1.5rem; line-height: 1.3; }
+    .text-lg { font-size: 1.25rem; line-height: 1.4; }
+    .text-base { font-size: 1rem; line-height: 1.5; }
+    .text-sm { font-size: 0.875rem; line-height: 1.5; }
+    .text-xs { font-size: 0.75rem; line-height: 1.5; }
+
+    .spacing-demo {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .box-1 { width: 1rem; height: 1rem; }
+    .box-2 { width: 2rem; height: 2rem; }
+    .box-3 { width: 3rem; height: 3rem; }
+    .box-4 { width: 4rem; height: 4rem; }
+    .box-6 { width: 6rem; height: 6rem; }
+    .box-8 { width: 8rem; height: 8rem; }
+
+    .viewport-info {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-family: monospace;
+      min-width: 15rem;
+    }
+
+    .viewport-info div {
+      margin-bottom: 0.5rem;
+    }
+
+    .viewport-info div:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      opacity: 0.7;
+      display: inline-block;
+      width: 9rem;
+    }
+
+    .value {
+      font-weight: bold;
+      color: #4ade80;
+    }
+
+    @media (max-width: 768px) {
+      .viewport-info {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport-info" id="viewport-info">
+    <div><span class="label">Viewport Width:</span> <span class="value" id="vw"></span></div>
+    <div><span class="label">Viewport Height:</span> <span class="value" id="vh"></span></div>
+    <div><span class="label">Computed fontSize:</span> <span class="value" id="fontSize"></span></div>
+    <div><span class="label">1rem equals:</span> <span class="value" id="remValue"></span></div>
+    <div><span class="label">Window zoom:</span> <span class="value" id="zoom"></span></div>
+  </div>
+
+  <div class="container">
+    <h1>Responsive Typography Scale Test</h1>
+    
+    <div class="info">
+      <strong>Formula:</strong> <code>font-size: clamp(10px, 1.11vw, 100vw)</code><br>
+      <strong>Goal:</strong> Perfect proportional scaling - everything looks identical on all screen sizes, just scaled up/down.<br>
+      <strong>How to test:</strong> Resize your browser window and watch everything scale proportionally. The visual proportions stay exactly the same!
+    </div>
+
+    <div class="scale-demo">
+      <div class="scale-item">
+        <div class="scale-label">6xl - Hero Text (6rem = 96-120px)</div>
+        <div class="text-6xl">Building Amazing</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">5xl - Large Heading (4rem = 64-80px)</div>
+        <div class="text-5xl">Product Designer</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">4xl - Section Heading (3rem = 48-60px)</div>
+        <div class="text-4xl">Recent Projects</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">3xl - Card Title (2.5rem = 40-50px)</div>
+        <div class="text-3xl">Design System Project</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">2xl - Subheading (2rem = 32-40px)</div>
+        <div class="text-2xl">30% faster delivery</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">xl - Large Text (1.5rem = 24-30px)</div>
+        <div class="text-xl">Open to new opportunities</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">lg - Navigation (1.25rem = 20-25px)</div>
+        <div class="text-lg">Works • About • Contact</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">base - Body Text (1rem = 16-20px)</div>
+        <div class="text-base">This is the base font size that all rem units are calculated from. It scales automatically based on viewport width.</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">sm - Small Text (0.875rem = 14-17.5px)</div>
+        <div class="text-sm">Secondary information and metadata goes here. Still perfectly readable.</div>
+      </div>
+
+      <div class="scale-item">
+        <div class="scale-label">xs - Extra Small (0.75rem = 12-15px)</div>
+        <div class="text-xs">Fine print and labels. Minimum comfortable reading size.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem;">Spacing Scale Test</h2>
+    <div class="scale-label" style="margin-bottom: 1rem;">All boxes scale proportionally with viewport</div>
+    
+    <div class="spacing-demo">
+      <div class="box box-1">1rem</div>
+      <div class="box box-2">2rem</div>
+      <div class="box box-3">3rem</div>
+      <div class="box box-4">4rem</div>
+      <div class="box box-6">6rem</div>
+      <div class="box box-8">8rem</div>
+    </div>
+  </div>
+
+  <script>
+    function updateViewportInfo() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const zoom = Math.round((window.devicePixelRatio || 1) * 100);
+
+      document.getElementById('vw').textContent = `${vw}px`;
+      document.getElementById('vh').textContent = `${vh}px`;
+      document.getElementById('fontSize').textContent = `${fontSize.toFixed(2)}px`;
+      document.getElementById('remValue').textContent = `${fontSize.toFixed(2)}px`;
+      document.getElementById('zoom').textContent = `${zoom}%`;
+    }
+
+    // Update on load and resize
+    updateViewportInfo();
+    window.addEventListener('resize', updateViewportInfo);
+    
+    // Update on zoom (detect via resize + media query changes)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateViewportInfo, 250);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 46.875rem; /* 750px at base 16px */
+  padding: 6.5rem 2.5rem;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.625rem;
+  width: 100%;
+  max-width: 90%;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.125rem;
+}
+
+.hero-line {
+  background: white;
+  padding: 0 0.625rem 1.25rem 0.625rem;
+  display: inline-block;
+}
+
+.hero-line-text {
+  font-family: 'Grenze', serif;
+  font-weight: 500;
+  font-size: 6.25rem; /* 100px at base 16px */
+  line-height: 1;
+  color: black;
+  white-space: nowrap;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 1.125rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-tag {
+  background: white;
+  padding: 0.75rem 1rem 1.125rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.hero-tag-text {
+  font-family: 'Grenze', serif;
+  font-weight: 500;
+  font-size: 2.5rem; /* 40px at base 16px */
+  color: black;
+  white-space: nowrap;
+}
+
+.hero-tag-icon {
+  font-size: 1.4rem; /* ~22px at base 16px */
+  color: #47a119;
+  display: flex;
+  align-items: center;
+}
+
+.recent-projects-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: white;
+  padding: 1.25rem 2.5rem;
+}
+
+.recent-projects-badge span {
+  font-family: 'Grenze', serif;
+  font-weight: 500;
+  font-size: 2rem; /* 32px at base 16px */
+  color: black;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .hero-line-text {
+    font-size: 5rem; /* 80px */
+  }
+
+  .hero-tag-text {
+    font-size: 2rem; /* 32px */
+  }
+
+  .recent-projects-badge span {
+    font-size: 1.75rem; /* 28px */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding: 5rem 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 95%;
+    gap: 1.5rem;
+  }
+
+  .hero-line {
+    padding: 0 0.5rem 1rem 0.5rem;
+  }
+
+  .hero-line-text {
+    font-size: 3rem; /* 48px */
+  }
+
+  .hero-tag {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .hero-tag-text {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .hero-tag-icon {
+    font-size: 1rem;
+  }
+
+  .recent-projects-badge {
+    padding: 1rem 1.5rem;
+  }
+
+  .recent-projects-badge span {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-line-text {
+    font-size: 2rem; /* 32px */
+  }
+
+  .hero-tag-text {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  .recent-projects-badge span {
+    font-size: 1rem; /* 16px */
+  }
+}

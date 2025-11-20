@@ -1,0 +1,158 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6.5rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.25rem;
+  width: 100%;
+  max-width: min(52rem, 90%);
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.footer-line {
+  background: white;
+  padding: 1.25rem 0.625rem 1.5rem 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.footer-line-text {
+  font-family: 'Grenze', serif;
+  font-weight: 500;
+  font-size: 6.25rem;
+  line-height: 1;
+  color: black;
+  white-space: nowrap;
+}
+
+.footer-tag-icon {
+  font-size: 2.85rem;
+  color: #47a119;
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.625rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  background: white;
+  color: black;
+  padding: 0.625rem;
+  font-family: 'Grenze', serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  transition: transform 0.2s ease;
+}
+
+.footer-link:hover {
+  transform: translateY(-0.125rem);
+}
+
+.footer-link-external,
+.footer-link-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.icon-arrow,
+.icon-copy {
+  font-size: 1.125rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .footer-line-text {
+    font-size: 5rem;
+  }
+
+  .footer-tag-icon {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 5rem 1.5rem;
+  }
+
+  .footer-content {
+    max-width: 95%;
+    gap: 2.5rem;
+  }
+
+  .footer-line {
+    padding: 1rem 0.5rem;
+  }
+
+  .footer-line-text {
+    font-size: 3rem;
+  }
+
+  .footer-tag-icon {
+    font-size: 1.75rem;
+  }
+
+  .footer-nav {
+    gap: 1rem;
+  }
+
+  .footer-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .icon-arrow,
+  .icon-copy {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 4rem 1rem;
+  }
+
+  .footer-line-text {
+    font-size: 2rem;
+  }
+
+  .footer-tag-icon {
+    font-size: 1.25rem;
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+}

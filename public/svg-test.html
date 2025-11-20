@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Background Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .test-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .test-background {
+            background-image: url('/bg.svg');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: auto 180%;
+            background-color: #F8CAFF;
+            filter: blur(40px);
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+        
+        .test-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #213547;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-background"></div>
+        <div class="test-content">
+            <h1>SVG Background Test</h1>
+        </div>
+    </div>
+</body>
+</html>
