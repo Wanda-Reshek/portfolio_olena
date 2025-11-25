@@ -3,9 +3,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 46.875rem; /* 750px at base 16px */
-  padding: 6.5rem 2.5rem;
+  min-height: 100vh;
+  padding: 0;
   position: relative;
+}
+
+.hero .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .hero-content {
@@ -15,26 +24,27 @@
   gap: 1.625rem;
   width: 100%;
   max-width: 90%;
+  padding: 6.5rem 2.5rem;
 }
 
 .hero-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.125rem;
+  gap: -2px;
 }
 
 .hero-line {
   background: white;
-  padding: 0 0.625rem 1.25rem 0.625rem;
+  padding: 0 0.625rem 1rem 0.625rem;
   display: inline-block;
 }
 
 .hero-line-text {
   font-family: 'Grenze', serif;
   font-weight: 500;
-  font-size: 6.25rem; /* 100px at base 16px */
-  line-height: 1;
+  font-size: 6.5rem; /* 80px at base 16px */
+  line-height: 0.8 ;
   color: black;
   white-space: nowrap;
 }
@@ -49,7 +59,7 @@
 
 .hero-tag {
   background: white;
-  padding: 0.75rem 1rem 1.125rem 1rem;
+  padding: 0.3rem 0.6rem 0.7rem 0.6rem;
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -59,6 +69,7 @@
   font-family: 'Grenze', serif;
   font-weight: 500;
   font-size: 2.5rem; /* 40px at base 16px */
+  line-height: 0.8;
   color: black;
   white-space: nowrap;
 }
@@ -88,27 +99,23 @@
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .hero-line-text {
-    font-size: 5rem; /* 80px */
+    font-size: 8rem; /* 80px */
   }
 
   .hero-tag-text {
-    font-size: 2rem; /* 32px */
+    font-size: 3rem; /* 32px */
   }
 
   .recent-projects-badge span {
-    font-size: 1.75rem; /* 28px */
+    font-size: 2.5rem; /* 28px */
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: 100vh;
-    padding: 5rem 1.5rem;
-  }
-
   .hero-content {
     max-width: 95%;
     gap: 1.5rem;
+    padding: 5rem 1.5rem;
   }
 
   .hero-line {
@@ -116,15 +123,15 @@
   }
 
   .hero-line-text {
-    font-size: 3rem; /* 48px */
+    font-size: 7rem; /* 48px */
   }
 
   .hero-tag {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 1rem 1rem 1rem;
   }
 
   .hero-tag-text {
-    font-size: 1.5rem; /* 24px */
+    font-size: 3rem; /* 24px */
   }
 
   .hero-tag-icon {
@@ -136,20 +143,27 @@
   }
 
   .recent-projects-badge span {
-    font-size: 1.25rem; /* 20px */
+    font-size: 2.5rem; /* 20px */
   }
+  .hero-tags {
+  gap: 0;
+}
 }
 
 @media (max-width: 480px) {
   .hero-line-text {
-    font-size: 2rem; /* 32px */
+    font-size: 4rem; /* 32px */
   }
 
   .hero-tag-text {
-    font-size: 1.125rem; /* 18px */
+    font-size: 2.5rem; /* 18px */
   }
 
   .recent-projects-badge span {
-    font-size: 1rem; /* 16px */
+    font-size: 2.4rem; /* 16px */
   }
+
+  .hero-tags {
+  gap: 0;
+}
 }

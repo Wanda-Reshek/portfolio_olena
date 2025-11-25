@@ -1,3 +1,5 @@
+@import './SharedNav.css';
+
 .header {
   display: flex;
   justify-content: center;
@@ -6,67 +8,9 @@
   z-index: 10;
 }
 
-.nav {
-  display: flex;
-  gap: 1.625rem; /* 26px at base 16px */
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.nav-link {
-  background: white;
-  color: black;
-  padding: 0.625rem;
-  font-family: 'Grenze', serif;
-  font-weight: 500;
-  font-size: 1.25rem; /* 20px at base 16px */
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  white-space: nowrap;
-  transition: transform 0.2s ease;
-}
-
-.nav-link:hover {
-  transform: translateY(-0.125rem);
-}
-
-.nav-link-external,
-.nav-link-copy {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.icon-arrow,
-.icon-copy {
-  font-size: 1.125rem; /* 18px at base 16px */
-  display: inline-flex;
-  align-items: center;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header {
     padding: 0.75rem 0;
-  }
-
-  .nav {
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .nav-link {
-    font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .icon-arrow,
-  .icon-copy {
-    font-size: 0.875rem;
   }
 }

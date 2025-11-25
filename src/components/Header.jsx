@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconCopy, IconArrowRightUp } from './Icons';
 import './Header.css';
 
 const Header = () => {
@@ -9,34 +10,34 @@ const Header = () => {
 
   return (
     <header className="header">
-      <nav className="nav">
-        <a href="#works" className="nav-link">
+      <nav className="header-footer-nav">
+        <a href="#works" className="header-footer-link">
           Works
         </a>
         <a 
           href="/cv.pdf" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="nav-link nav-link-external"
+          className="header-footer-link header-footer-link-external"
         >
           CV
-          <span className="icon-arrow">↗</span>
+          <IconArrowRightUp />
         </a>
         <a 
           href="https://linkedin.com/in/your-profile" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="nav-link nav-link-external"
+          className="header-footer-link header-footer-link-external"
         >
           Linkedin
-          <span className="icon-arrow">↗</span>
+          <IconArrowRightUp />
         </a>
         <button 
           onClick={copyEmail} 
-          className="nav-link nav-link-copy"
+          className="header-footer-link header-footer-link-copy"
         >
           lenkachurina@gmail.com
-          <span className="icon-copy">📋</span>
+          <IconCopy />
         </button>
       </nav>
     </header>

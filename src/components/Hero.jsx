@@ -1,9 +1,12 @@
 import React from 'react';
 import './Hero.css';
+import Header from './Header';
 
 const Hero = () => {
   return (
     <section className="hero">
+      <Header />
+      
       <div className="hero-content">
         <div className="hero-text">
           <div className="hero-line">
