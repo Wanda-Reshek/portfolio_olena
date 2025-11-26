@@ -58,7 +58,7 @@
 .result-description {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.875rem; /* 14px at base 16px */
+  font-size: 1rem; /* 14px at base 16px */
   line-height: 1.5;
   color: black;
   margin: 0;
@@ -88,32 +88,20 @@
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .project-title {
-    font-size: 2.75rem; /* 44px */
+    font-size: 3rem; /* 44px */
   }
 
   .result-value {
-    font-size: 1.75rem; /* 28px */
+    font-size: 2rem; /* 28px */
+  }
+   .result-description {
+    font-size: 1; /* 13px */
   }
 }
 
 @media (max-width: 1024px) {
-  .project-card {
-    flex-direction: column;
-    min-height: auto;
-  }
-
-  .project-info {
-    flex: 1;
-    padding: 3rem;
-    gap: 2rem;
-  }
-
   .project-title {
     font-size: 2.5rem; /* 40px */
-  }
-
-  .project-results {
-    gap: 2rem;
   }
 
   .result-value {
@@ -121,18 +109,32 @@
   }
 
   .result-description {
-    font-size: 0.8125rem; /* 13px */
-  }
-
-  .project-preview {
-    flex: 1;
-    padding: 0 3rem 3rem 3rem;
-    min-height: 25rem;
+    font-size: 1; /* 13px */
   }
 }
 
 @media (max-width: 768px) {
+  .project-title {
+    font-size: 2rem; /* 32px */
+  }
+
+  .result-value {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  .result-description {
+    font-size: 0.75rem; /* 12px */
+  }
+}
+
+@media (max-width: 542px) {
+  .project-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
   .project-info {
+    flex: 1;
     padding: 2rem;
     gap: 1.5rem;
   }
@@ -159,6 +161,7 @@
   }
 
   .project-preview {
+    flex: 1;
     padding: 0 2rem 2rem 2rem;
     min-height: 20rem;
   }
