@@ -15,6 +15,24 @@
   min-height: 27.5rem; /* 440px at base 16px */
   width: 100%;
   position: relative;
+  text-decoration: none;
+}
+
+.cursor-chip {
+  position: absolute;
+  background: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  font-family: 'Grenze', serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(10px, 10px);
+  z-index: 100;
+  border-radius: 2px;
+  transition: opacity 0.2s ease;
 }
 
 .project-info {
@@ -28,7 +46,7 @@
 .project-title {
   font-family: 'Grenze', serif;
   font-weight: 500;
-  font-size: 3.5rem; /* 56px at base 16px */
+  font-size: max(3.5rem, 56px); /* Min 56px */
   line-height: 1;
   color: black;
   margin: 0;
@@ -48,7 +66,7 @@
 .result-value {
   font-family: 'Grenze', serif;
   font-weight: 400;
-  font-size: 2rem; /* 32px at base 16px */
+  font-size: max(2rem, 32px); /* Min 32px */
   line-height: 1.4;
   color: black;
   margin: 0 0 0.25rem 0;
@@ -58,7 +76,7 @@
 .result-description {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1rem; /* 14px at base 16px */
+  font-size: max(1rem, 14px); /* Min 14px, scales with rem */
   line-height: 1.5;
   color: black;
   margin: 0;
@@ -66,17 +84,33 @@
 
 .project-preview {
   flex: 1;
-  padding: 2.5rem 2.5rem 2.5rem 0;
+  padding: 2.5rem 2.5rem 2.5rem 9rem;
   display: flex;
 }
 
 .preview-container {
   flex: 1;
-  border-radius: 0;
-  overflow: hidden;
+  border-radius: 0.7rem;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 560 / 360;
+  width: 100%;
+  max-width: 100%;
+}
+
+.preview-image {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  display: block;
+  border-radius: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .preview-image {
+  transform: scale(1.05);
 }
 
 .preview-placeholder {
@@ -85,45 +119,62 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* Exact size for specific viewports */
+@media (min-width: 1441px) {
+  .preview-container {
+   /* width: 560px;
+    height: 360px;*/
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 1440px) and (min-width: 1400px) {
+  .preview-container {
+   /* width: 560px;
+    height: 360px; */
+    flex: 0 0 auto;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .project-title {
-    font-size: 3rem; /* 44px */
+    font-size: max(3rem, 56px); /* Min 56px */
   }
 
   .result-value {
-    font-size: 2rem; /* 28px */
+    font-size: max(2rem, 32px); /* Min 32px */
   }
    .result-description {
-    font-size: 1; /* 13px */
+    font-size: max(1rem, 14px); /* Min 14px */
   }
 }
 
 @media (max-width: 1024px) {
   .project-title {
-    font-size: 2.5rem; /* 40px */
+    font-size: max(2.5rem, 36px); /* Min 56px */
   }
 
   .result-value {
-    font-size: 1.5rem; /* 24px */
+    font-size: max(1.5rem, 28px); /* Min 32px */
   }
 
   .result-description {
-    font-size: 1; /* 13px */
+    font-size: max(1rem, 12px); /* Min 14px */
   }
 }
 
 @media (max-width: 768px) {
   .project-title {
-    font-size: 2rem; /* 32px */
+    font-size: max(2rem, 32px); /* Min 56px */
   }
 
   .result-value {
-    font-size: 1.25rem; /* 20px */
+    font-size: max(1.25rem, 24px); /* Min 32px */
   }
 
   .result-description {
-    font-size: 0.75rem; /* 12px */
+    font-size: max(0.875rem, 12px); /* Min 14px */
   }
 }
 
@@ -137,10 +188,11 @@
     flex: 1;
     padding: 2rem;
     gap: 1.5rem;
+    order: 2;
   }
 
   .project-title {
-    font-size: 2rem; /* 32px */
+    font-size: max(2rem, 44px); /* Min 56px */
   }
 
   .project-results {
@@ -153,17 +205,17 @@
   }
 
   .result-value {
-    font-size: 1.25rem; /* 20px */
+    font-size: max(1.25rem, 28px); /* Min 32px */
   }
 
   .result-description {
-    font-size: 0.75rem; /* 12px */
+    font-size: max(0.875rem, 14px); /* Min 14px */
   }
 
   .project-preview {
     flex: 1;
-    padding: 0 2rem 2rem 2rem;
-    min-height: 20rem;
+    padding: 2rem 2rem 0 2rem;
+    order: 1;
   }
 }
 
@@ -173,11 +225,17 @@
   }
 
   .project-title {
-    font-size: 1.5rem; /* 24px */
+    font-size: max(1.5rem, 32px); /* Min 56px */
   }
 
   .project-preview {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    min-height: 15rem;
+    padding: 1.5rem 1.5rem 0rem 1.5rem;
+  }
+  .result-value {
+    font-size: max(1.25rem, 24px); /* Min 32px */
+  }
+
+  .result-description {
+    font-size: max(0.875rem, 14px); /* Min 14px */
   }
 }

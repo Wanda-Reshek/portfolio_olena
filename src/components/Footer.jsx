@@ -1,18 +1,17 @@
 import React from 'react';
-import { IconCopy, IconArrowRightUp } from './Icons';
+import { IconArrowRightUp } from './Icons';
+import CopyEmailButton from './CopyEmailButton';
 import './Footer.css';
 
 const Footer = () => {
-  const copyEmail = () => {
-    navigator.clipboard.writeText('lenkachurina@gmail.com');
-  };
-
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-text">
           <div className="footer-line">
-            <span className="footer-tag-icon">●</span>
+            <div className="footer-tag-icon-wrapper">
+              <span className="footer-tag-icon">●</span>
+            </div>
             <span className="footer-line-text">Open to new projects</span>
           </div>
           <div className="footer-line">
@@ -34,7 +33,7 @@ const Footer = () => {
             <IconArrowRightUp />
           </a>
           <a 
-            href="https://linkedin.com/in/your-profile" 
+            href="https://www.linkedin.com/in/olena-kachurina/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="header-footer-link header-footer-link-external"
@@ -42,13 +41,7 @@ const Footer = () => {
             Linkedin
             <IconArrowRightUp />
           </a>
-          <button 
-            onClick={copyEmail} 
-            className="header-footer-link header-footer-link-copy"
-          >
-            lenkachurina@gmail.com
-            <IconCopy />
-          </button>
+          <CopyEmailButton position="footer" />
         </div>
       </div>
     </footer>

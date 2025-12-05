@@ -1,13 +1,9 @@
 import React from 'react';
-import { IconCopy, IconArrowRightUp } from './Icons';
+import { IconArrowRightUp } from './Icons';
+import CopyEmailButton from './CopyEmailButton';
 import './Header.css';
 
 const Header = () => {
-  const copyEmail = () => {
-    navigator.clipboard.writeText('lenkachurina@gmail.com');
-    // Optional: Add a toast notification here
-  };
-
   return (
     <header className="header">
       <nav className="header-footer-nav">
@@ -24,7 +20,7 @@ const Header = () => {
           <IconArrowRightUp />
         </a>
         <a 
-          href="https://linkedin.com/in/your-profile" 
+          href="https://www.linkedin.com/in/olena-kachurina/" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="header-footer-link header-footer-link-external"
@@ -32,13 +28,7 @@ const Header = () => {
           Linkedin
           <IconArrowRightUp />
         </a>
-        <button 
-          onClick={copyEmail} 
-          className="header-footer-link header-footer-link-copy"
-        >
-          lenkachurina@gmail.com
-          <IconCopy />
-        </button>
+        <CopyEmailButton position="header" />
       </nav>
     </header>
   );

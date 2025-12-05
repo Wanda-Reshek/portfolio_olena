@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './Projects.css';
 
 const Projects = () => {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  const handleMouseMove = (e, projectId) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCursorPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
+
+  const handleMouseEnter = (projectId) => {
+    setIsHovering(true);
+    setHoveredProject(projectId);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setHoveredProject(null);
+  };
+
   const projects = [
     {
       id: 1,
@@ -13,7 +35,8 @@ const Projects = () => {
       ],
       bgColor: '#e5eaeb',
       imageBg: '#134551',
-      image: '/project1-preview.png' // Placeholder
+      image: '/images/project1-preview.png',
+      link: 'https://olenakachurina-designsystem.figma.site/'
     },
     {
       id: 2,
@@ -25,7 +48,8 @@ const Projects = () => {
       ],
       bgColor: '#fed35b',
       imageBg: '#e5eaeb',
-      image: '/project2-preview.png' // Placeholder
+      image: '/images/project2-preview.png',
+      link: 'https://olenakachurina-quickdocs.figma.site/'
     },
     {
       id: 3,
@@ -37,44 +61,70 @@ const Projects = () => {
       ],
       bgColor: '#f0a6e8',
       imageBg: '#202025',
-      image: '/project3-preview.png' // Placeholder
+      image: '/images/project3-preview.png',
+      link: null // No link yet
     }
   ];
 
   return (
     <section className="projects" id="works">
       <div className="projects-container">
-        {projects.map((project) => (
-          <div 
-            key={project.id} 
-            className="project-card"
-            style={{ backgroundColor: project.bgColor }}
-          >
-            <div className="project-info">
-              <h3 className="project-title">{project.title}</h3>
-              
-              <div className="project-results">
-                {project.results.map((result, index) => (
-                  <div key={index} className="result-item">
-                    <p className="result-value">{result.value}</p>
-                    <p className="result-description">{result.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="project-preview">
-              <div 
-                className="preview-container"
-                style={{ backgroundColor: project.imageBg }}
-              >
-                <div className="preview-placeholder">
-                  Preview Image
+        {projects.map((project) => {
+          const CardWrapper = project.link ? 'a' : 'div';
+          const cardProps = project.link 
+            ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
+            : {};
+          
+          return (
+            <CardWrapper 
+              key={project.id} 
+              className="project-card"
+              style={{ backgroundColor: project.bgColor }}
+              onMouseMove={(e) => handleMouseMove(e, project.id)}
+              onMouseEnter={() => handleMouseEnter(project.id)}
+              onMouseLeave={handleMouseLeave}
+              {...cardProps}
+            >
+              <div className="project-info">
+                <h3 className="project-title">{project.title}</h3>
+                
+                <div className="project-results">
+                  {project.results.map((result, index) => (
+                    <div key={index} className="result-item">
+                      <p className="result-value">{result.value}</p>
+                      <p className="result-description">{result.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+
+              <div className="project-preview">
+                <div 
+                  className="preview-container"
+                  style={{ backgroundColor: project.imageBg }}
+                >
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="preview-image"
+                  />
+                </div>
+              </div>
+
+              {isHovering && hoveredProject === project.id && (
+                <div 
+                  className="cursor-chip"
+                  style={{
+                    left: `${cursorPosition.x}px`,
+                    top: `${cursorPosition.y}px`
+                  }}
+                >
+                  View case study
+                </div>
+              )}
+            </CardWrapper>
+          );
+        })}
       </div>
     </section>
   );

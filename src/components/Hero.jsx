@@ -28,15 +28,17 @@ const Hero = () => {
             <span className="hero-tag-text">6+ years of experience</span>
           </div>
           <div className="hero-tag hero-tag-highlight">
-            <span className="hero-tag-icon">●</span>
+            <div className="hero-tag-icon-wrapper">
+              <span className="hero-tag-icon">●</span>
+            </div>
             <span className="hero-tag-text">Open to new projects</span>
           </div>
         </div>
       </div>
 
-      <div className="recent-projects-badge">
+      <a href="#works" className="recent-projects-badge">
         <span>Recent projects</span>
-      </div>
+      </a>
     </section>
   );
 };

@@ -2,7 +2,7 @@
 
 .header-footer-nav {
   display: flex;
-  gap: 1.625rem; /* 26px at base 16px */
+  gap: 1.125rem; /* 26px at base 16px */
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -11,29 +11,38 @@
 .header-footer-link {
   background: white;
   color: black;
-  padding: 0.625rem;
+  padding: 0.25rem 0.625rem 0.45rem 0.625rem;
   font-family: 'Grenze', serif;
   font-weight: 500;
-  font-size: 1.25rem; /* 20px at base 16px */
+  font-size: 1.35rem; /* 20px at base 16px */
   line-height: 0.8;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   white-space: nowrap;
   transition: transform 0.2s ease;
-  min-height: 32px;
+}
+
+.header-footer-link:focus {
+  outline: none;
+}
+
+.header-footer-link:focus-visible {
+  outline: 2px solid black;
+  outline-offset: 2px;
 }
 
 .header-footer-link:hover {
   transform: translateY(-0.125rem);
+  color: #484848;
 }
 
 .header-footer-link-external,
 .header-footer-link-copy {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.25rem;
 }
@@ -54,7 +63,7 @@
   
   .header-footer-link {
     font-size: 2rem;
-    padding: 0.5rem 0.75rem;
+    /*padding: 0.5rem 0.75rem; */
   }
 
   .header-footer-link .icon-arrow,
@@ -73,7 +82,7 @@
   
   .header-footer-link {
     font-size: 2rem;
-    padding: 0.5rem 0.75rem;
+    /*padding: 0.5rem 0.75rem;*/
   }
 
   .header-footer-link .icon-arrow,

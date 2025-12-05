@@ -14,6 +14,8 @@ html {
   /* No maximum limit - scales infinitely for true proportional design */
   /* At 320px = ~3.5px (but clamp protects), at 1440px = 16px, at 2400px = 26.6px */
   font-size: clamp(10px, 1.11vw, 100vw);
+  /* Smooth scroll behavior for anchor links */
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -80,11 +82,24 @@ body {
 }
 
 .app p {
-  color: #666;
+  color: #000000;
 }
 button:focus,
 button:focus-visible {
   outline: 0.25rem auto -webkit-focus-ring-color;
+}
+
+/* Responsive background adjustments */
+@media (max-width: 542px) {
+  .bg-svg {
+    width: 200%;
+    height: 100vh;
+    min-height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+  }
 }
 
 @media (prefers-color-scheme: light) {
