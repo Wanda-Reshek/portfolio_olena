@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 
 const Projects = () => {
@@ -53,16 +54,16 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'MVP for in your class and school through asynchronous audio.',
+      title: "Students' progress tracking application.",
       results: [
-        { value: '4x faster', description: 'checking of shipping documents' },
-        { value: '75% less', description: 'errors in document presentation' },
-        { value: 'Up to 2 days', description: 'saved in payment cycle' }
+        { value: 'Prototype', description: 'that was later adapted for classroom solution' },
+        { value: 'Adopted', description: 'in US and EU schools' },
+        { value: '', description: '' }
       ],
       bgColor: '#f0a6e8',
       imageBg: '#202025',
       image: '/images/project3-preview.png',
-      link: null // No link yet
+      link: '/project-3'
     }
   ];
 
@@ -70,9 +71,17 @@ const Projects = () => {
     <section className="projects" id="works">
       <div className="projects-container">
         {projects.map((project) => {
-          const CardWrapper = project.link ? 'a' : 'div';
+          // Determine if link is internal (starts with /) or external
+          const isInternal = project.link && project.link.startsWith('/');
+          const CardWrapper = project.link 
+            ? (isInternal ? Link : 'a')
+            : 'div';
+          
           const cardProps = project.link 
-            ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
+            ? (isInternal 
+                ? { to: project.link }
+                : { href: project.link }
+              )
             : {};
           
           return (

@@ -9,9 +9,10 @@ const Header = () => {
       <nav className="header-footer-nav">
         <a href="#works" className="header-footer-link">
           Works
+          <span className="icon-spacer"></span>
         </a>
         <a 
-          href="/cv.pdf" 
+          href="https://drive.google.com/file/d/1fmyJgL9f6kwluTX7xu6t0GO0_neJMDWQ/view?usp=sharing" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="header-footer-link header-footer-link-external"

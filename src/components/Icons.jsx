@@ -5,6 +5,8 @@ import React from 'react';
 import iconCopySvg from '../assets/icons/copy.svg';
 // External link icon (arrow pointing right-up)
 import iconArrowRightUpSvg from '../assets/icons/arrow-right-up.svg';
+// Left arrow icon
+import iconArrowLeftSvg from '../assets/icons/arrow-left.svg';
 
 export const IconCopy = ({ className = "" }) => {
   return (
@@ -13,8 +15,8 @@ export const IconCopy = ({ className = "" }) => {
       style={{
         display: 'inline-flex',
         position: 'relative',
-        width: '0.8em',
-        height: '0.8em',
+        width: '1em',
+        height: '1em',
       }}
     >
       <img 
@@ -39,13 +41,39 @@ export const IconArrowRightUp = ({ className = "" }) => {
       style={{
         display: 'inline-flex',
         position: 'relative',
-        width: '0.8em',
-        height: '0.8em',
+        width: '1em',
+        height: '1em',
       }}
     >
       <img 
         src={iconArrowRightUpSvg} 
         alt="External link" 
+        style={{
+          position: 'absolute',
+          inset: '4.17%',
+          width: '91.66%',
+          height: '91.66%',
+          display: 'block',
+        }}
+      />
+    </span>
+  );
+};
+
+export const IconArrowLeft = ({ className = "" }) => {
+  return (
+    <span 
+      className={`icon-arrow-left-svg ${className}`}
+      style={{
+        display: 'inline-flex',
+        position: 'relative',
+        width: '1em',
+        height: '1em',
+      }}
+    >
+      <img 
+        src={iconArrowLeftSvg} 
+        alt="Arrow left" 
         style={{
           position: 'absolute',
           inset: '4.17%',

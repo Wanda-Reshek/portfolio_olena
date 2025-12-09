@@ -54,6 +54,15 @@
   align-items: center;
 }
 
+/* Icon spacer for "Works" link to match height of other chips */
+.icon-spacer {
+  display: inline-block;
+  width: 1px;
+  height: 1.35rem; /* Matches font-size of .header-footer-link */
+  background: transparent;
+  flex-shrink: 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .header-footer-nav {
