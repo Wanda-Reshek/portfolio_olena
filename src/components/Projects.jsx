@@ -37,7 +37,8 @@ const Projects = () => {
       bgColor: '#e5eaeb',
       imageBg: '#134551',
       image: '/images/project1-preview.png',
-      link: 'https://olenakachurina-designsystem.figma.site/'
+      link: 'https://olenakachurina-designsystem.figma.site/',
+      eventName: 'design-system-case-study'
     },
     {
       id: 2,
@@ -50,7 +51,8 @@ const Projects = () => {
       bgColor: '#fed35b',
       imageBg: '#e5eaeb',
       image: '/images/project2-preview.png',
-      link: 'https://olenakachurina-quickdocs.figma.site/'
+      link: 'https://olenakachurina-quickdocs.figma.site/',
+      eventName: 'quickdocs-case-study'
     },
     {
       id: 3,
@@ -80,7 +82,11 @@ const Projects = () => {
           const cardProps = project.link 
             ? (isInternal 
                 ? { to: project.link }
-                : { href: project.link }
+                : { 
+                    href: project.link,
+                    'data-umami-event': project.eventName || `outbound-link-project-${project.id}`,
+                    'data-umami-event-url': project.link
+                  }
               )
             : {};
           
