@@ -25,6 +25,12 @@ const Projects = () => {
     setHoveredProject(null);
   };
 
+  const handleInternalLinkClick = (eventName, projectId) => {
+    if (window.umami) {
+      window.umami.track(eventName || `internal-link-project-${projectId}`);
+    }
+  };
+
   const projects = [
     {
       id: 1,
@@ -65,7 +71,8 @@ const Projects = () => {
       bgColor: '#f0a6e8',
       imageBg: '#202025',
       image: '/images/project3-preview.png',
-      link: '/project-3'
+      link: '/project-3',
+      eventName: 'students-progress-case-study'
     }
   ];
 
@@ -81,7 +88,10 @@ const Projects = () => {
           
           const cardProps = project.link 
             ? (isInternal 
-                ? { to: project.link }
+                ? { 
+                    to: project.link,
+                    onClick: () => handleInternalLinkClick(project.eventName, project.id)
+                  }
                 : { 
                     href: project.link,
                     'data-umami-event': project.eventName || `outbound-link-project-${project.id}`,
