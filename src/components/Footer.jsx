@@ -28,12 +28,12 @@ const Footer = () => {
             <span className="icon-spacer"></span>
           </a>
           <a
-            href="https://drive.google.com/file/d/1fmyJgL9f6kwluTX7xu6t0GO0_neJMDWQ/view?usp=sharing"
+            href="https://drive.google.com/drive/folders/1F2KisiBQvYgrAeMAXwbm1H6CSUMgR0da?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="header-footer-link header-footer-link-external"
             data-umami-event="CV-click"
-            data-umami-event-url="https://drive.google.com/file/d/1fmyJgL9f6kwluTX7xu6t0GO0_neJMDWQ/view?usp=sharing"
+            data-umami-event-url="https://drive.google.com/drive/folders/1F2KisiBQvYgrAeMAXwbm1H6CSUMgR0da?usp=sharing"
           >
             CV
             <IconArrowRightUp />
