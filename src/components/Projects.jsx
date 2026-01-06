@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Projects.css';
 
 const Projects = () => {
+  const navigate = useNavigate();
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -25,10 +26,17 @@ const Projects = () => {
     setHoveredProject(null);
   };
 
-  const handleInternalLinkClick = (eventName, projectId) => {
+  const handleInternalLinkClick = (e, eventName, projectId, link) => {
+    e.preventDefault(); // Prevent immediate navigation
+    
     if (window.umami) {
       window.umami.track(eventName || `internal-link-project-${projectId}`);
     }
+    
+    // Navigate after a small delay to ensure tracking fires
+    setTimeout(() => {
+      navigate(link);
+    }, 100);
   };
 
   const projects = [
@@ -90,7 +98,7 @@ const Projects = () => {
             ? (isInternal 
                 ? { 
                     to: project.link,
-                    onClick: () => handleInternalLinkClick(project.eventName, project.id)
+                    onClick: (e) => handleInternalLinkClick(e, project.eventName, project.id, project.link)
                   }
                 : { 
                     href: project.link,
